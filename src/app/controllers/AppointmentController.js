@@ -20,7 +20,7 @@ class AppointmentController {
       // O limite e offset eh para paginacao. limit eh a qtd de registros por pagina, offset eh a quantidade de registros que vai pular, por isso a conta com a pagina para ele saber da onde comecar a mostrar
       limit: 20,
       offset: (page - 1) * 20,
-      attributes: ['id', 'date'],
+      attributes: ['id', 'date', 'past', 'cancelable'],
       // Esse atributo acima esta relacionado aos dados que estao sendo mostrado no apointment.
       include: [
         {
