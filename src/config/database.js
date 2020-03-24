@@ -1,10 +1,12 @@
+require('dotenv/config');
+
 // O arquivo de configuracao la dentro do sequelizerc ta chamando aqui
 module.exports = {
   dialect: 'postgres',
-  host: 'localhost',
-  username: 'postgres',
-  password: 'docker',
-  database: 'gobarber2',
+  host: process.env.DB_HOST,
+  username: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
   port: 5433,
   define: {
     timestamps: true,

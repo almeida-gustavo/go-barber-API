@@ -24,15 +24,12 @@ class Database {
   }
 
   mongo() {
-    this.mongoConnection = mongoose.connect(
-      'mongodb://localhost:27017/gobarber',
-      {
-        useNewUrlParser: true,
-        useFindAndModify: true,
-        // para usar o novo servidor... o antigo estava depreciado. qualquer coisa se o projeto nao rodar, tirar isso
-        useUnifiedTopology: true,
-      }
-    );
+    this.mongoConnection = mongoose.connect(process.env.MONGO_URL, {
+      useNewUrlParser: true,
+      useFindAndModify: true,
+      // para usar o novo servidor... o antigo estava depreciado. qualquer coisa se o projeto nao rodar, tirar isso
+      useUnifiedTopology: true,
+    });
   }
 }
 

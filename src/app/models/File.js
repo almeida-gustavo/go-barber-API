@@ -10,7 +10,7 @@ class File extends Model {
           type: Sequelize.VIRTUAL,
           // Serve para vc retornar uma mensagem especifica quando enviar uma requisicao get
           get() {
-            return `http://localhost:3333/files/${this.path}`;
+            return `${process.env.APP_URL}/files/${this.path}`;
           },
         },
       },
