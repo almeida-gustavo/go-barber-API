@@ -7,6 +7,7 @@ import Youch from 'youch';
 import * as Sentry from '@sentry/node';
 // Essa vc importa dessa maneira porque o express por padrao nao vai passar para o sentry os erros que der em operacoes async
 import 'express-async-errors';
+import cors from 'cors';
 import routes from './routes';
 import sentryConfig from './config/sentry';
 
@@ -26,6 +27,7 @@ class App {
 
   middlewares() {
     this.server.use(Sentry.Handlers.requestHandler());
+    this.server.use(cors());
     // Middlewares global
     this.server.use(express.json());
     // libernado para que vc consiga clicar nos links das fotos e abrir elas

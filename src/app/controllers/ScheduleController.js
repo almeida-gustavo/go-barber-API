@@ -24,6 +24,7 @@ class ScheduleController {
         // Vc poderia usar apenas o between mas como boa pratica eh bom usar esse Op que eh de operador
         date: { [Op.between]: [startOfDay(parsedDate), endOfDay(parsedDate)] },
       },
+      include: [{ model: User, as: 'user', attributes: ['name'] }],
       order: ['date'],
     });
 
